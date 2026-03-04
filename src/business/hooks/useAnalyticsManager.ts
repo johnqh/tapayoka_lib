@@ -15,10 +15,14 @@ export const useAnalyticsManager = (
   const hook = useAnalytics(networkClient, baseUrl, entitySlug, token, options);
 
   useEffect(() => {
-    if (hook.stats) {
-      store.setStats(hook.stats);
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
+    if (hook.stats && entitySlug) {
+      store.setStats(hook.stats, entitySlug);
     }
-  }, [hook.stats]);
+  }, [hook.stats, entitySlug]);
 
   return {
     stats: store.isLoaded ? store.stats : hook.stats,

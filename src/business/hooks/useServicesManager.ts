@@ -15,6 +15,10 @@ export const useServicesManager = (
   const hook = useServices(networkClient, baseUrl, entitySlug, token);
 
   useEffect(() => {
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
     if (hook.services.length > 0 && entitySlug) {
       store.setServices(hook.services, entitySlug);
     }

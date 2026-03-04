@@ -14,10 +14,14 @@ export const useOrdersManager = (
   const hook = useOrders(networkClient, baseUrl, entitySlug, token);
 
   useEffect(() => {
-    if (hook.orders.length > 0) {
-      store.setOrders(hook.orders);
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
+    if (hook.orders.length > 0 && entitySlug) {
+      store.setOrders(hook.orders, entitySlug);
     }
-  }, [hook.orders]);
+  }, [hook.orders, entitySlug]);
 
   return {
     orders: store.isLoaded ? store.orders : hook.orders,

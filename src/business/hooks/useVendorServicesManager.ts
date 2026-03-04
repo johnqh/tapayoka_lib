@@ -28,10 +28,14 @@ export const useVendorServicesManager = (
   );
 
   useEffect(() => {
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
     if (hook.services.length > 0 && parentId) {
-      store.setServices(hook.services, parentId);
+      store.setServices(hook.services, parentId, entitySlug ?? undefined);
     }
-  }, [hook.services, parentId]);
+  }, [hook.services, parentId, entitySlug]);
 
   const addService = useCallback(
     async (data: VendorServiceCreateRequest) => {

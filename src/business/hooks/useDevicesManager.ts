@@ -16,6 +16,10 @@ export const useDevicesManager = (
     enabled: !!token,
   });
 
+  useEffect(() => {
+    store.reset();
+  }, [entitySlug]);
+
   // Sync hook data to store
   useEffect(() => {
     if (hook.devices.length > 0 && entitySlug) {

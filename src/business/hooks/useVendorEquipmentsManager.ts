@@ -26,10 +26,14 @@ export const useVendorEquipmentsManager = (
   );
 
   useEffect(() => {
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
     if (hook.equipments.length > 0 && serviceId) {
-      store.setEquipments(hook.equipments, serviceId);
+      store.setEquipments(hook.equipments, serviceId, entitySlug ?? undefined);
     }
-  }, [hook.equipments, serviceId]);
+  }, [hook.equipments, serviceId, entitySlug]);
 
   const addEquipment = useCallback(
     async (data: VendorEquipmentCreateRequest) => {

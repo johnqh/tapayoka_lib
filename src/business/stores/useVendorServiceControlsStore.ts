@@ -4,8 +4,9 @@ import type { VendorServiceControl } from '@sudobility/tapayoka_types';
 interface VendorServiceControlsState {
   controls: VendorServiceControl[];
   isLoaded: boolean;
+  entitySlug: string | null;
   serviceId: string | null;
-  setControls: (controls: VendorServiceControl[], serviceId: string) => void;
+  setControls: (controls: VendorServiceControl[], serviceId: string, entitySlug?: string) => void;
   addControl: (control: VendorServiceControl) => void;
   updateControl: (id: string, updates: Partial<VendorServiceControl>) => void;
   removeControl: (id: string) => void;
@@ -16,9 +17,10 @@ export const useVendorServiceControlsStore =
   create<VendorServiceControlsState>(set => ({
     controls: [],
     isLoaded: false,
+    entitySlug: null,
     serviceId: null,
-    setControls: (controls, serviceId) =>
-      set({ controls, isLoaded: true, serviceId }),
+    setControls: (controls, serviceId, entitySlug) =>
+      set({ controls, isLoaded: true, serviceId, entitySlug: entitySlug ?? null }),
     addControl: control =>
       set(state => ({ controls: [...state.controls, control] })),
     updateControl: (id, updates) =>
@@ -31,5 +33,5 @@ export const useVendorServiceControlsStore =
       set(state => ({
         controls: state.controls.filter(c => c.id !== id),
       })),
-    reset: () => set({ controls: [], isLoaded: false, serviceId: null }),
+    reset: () => set({ controls: [], isLoaded: false, entitySlug: null, serviceId: null }),
   }));

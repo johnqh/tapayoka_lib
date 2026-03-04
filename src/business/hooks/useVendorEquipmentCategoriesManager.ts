@@ -24,10 +24,14 @@ export const useVendorEquipmentCategoriesManager = (
   );
 
   useEffect(() => {
-    if (hook.categories.length > 0) {
-      store.setCategories(hook.categories);
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
+    if (hook.categories.length > 0 && entitySlug) {
+      store.setCategories(hook.categories, entitySlug);
     }
-  }, [hook.categories]);
+  }, [hook.categories, entitySlug]);
 
   const addCategory = useCallback(
     async (data: VendorEquipmentCategoryCreateRequest) => {

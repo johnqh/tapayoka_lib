@@ -26,10 +26,14 @@ export const useVendorServiceControlsManager = (
   );
 
   useEffect(() => {
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
     if (hook.controls.length > 0 && serviceId) {
-      store.setControls(hook.controls, serviceId);
+      store.setControls(hook.controls, serviceId, entitySlug ?? undefined);
     }
-  }, [hook.controls, serviceId]);
+  }, [hook.controls, serviceId, entitySlug]);
 
   const addControl = useCallback(
     async (data: VendorServiceControlCreateRequest) => {

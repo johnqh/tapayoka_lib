@@ -20,10 +20,14 @@ export const useVendorLocationsManager = (
   });
 
   useEffect(() => {
-    if (hook.locations.length > 0) {
-      store.setLocations(hook.locations);
+    store.reset();
+  }, [entitySlug]);
+
+  useEffect(() => {
+    if (hook.locations.length > 0 && entitySlug) {
+      store.setLocations(hook.locations, entitySlug);
     }
-  }, [hook.locations]);
+  }, [hook.locations, entitySlug]);
 
   const addLocation = useCallback(
     async (data: VendorLocationCreateRequest) => {

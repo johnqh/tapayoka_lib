@@ -4,7 +4,8 @@ import type { VendorLocation } from '@sudobility/tapayoka_types';
 interface VendorLocationsState {
   locations: VendorLocation[];
   isLoaded: boolean;
-  setLocations: (locations: VendorLocation[]) => void;
+  entitySlug: string | null;
+  setLocations: (locations: VendorLocation[], entitySlug?: string) => void;
   addLocation: (location: VendorLocation) => void;
   updateLocation: (id: string, updates: Partial<VendorLocation>) => void;
   removeLocation: (id: string) => void;
@@ -14,7 +15,9 @@ interface VendorLocationsState {
 export const useVendorLocationsStore = create<VendorLocationsState>(set => ({
   locations: [],
   isLoaded: false,
-  setLocations: locations => set({ locations, isLoaded: true }),
+  entitySlug: null,
+  setLocations: (locations, entitySlug) =>
+    set({ locations, isLoaded: true, entitySlug: entitySlug ?? null }),
   addLocation: location =>
     set(state => ({ locations: [...state.locations, location] })),
   updateLocation: (id, updates) =>
@@ -27,5 +30,5 @@ export const useVendorLocationsStore = create<VendorLocationsState>(set => ({
     set(state => ({
       locations: state.locations.filter(l => l.id !== id),
     })),
-  reset: () => set({ locations: [], isLoaded: false }),
+  reset: () => set({ locations: [], isLoaded: false, entitySlug: null }),
 }));
