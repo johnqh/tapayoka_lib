@@ -6,7 +6,7 @@
       "name": "@sudobility/tapayoka_lib",
       "devDependencies": {
         "@eslint/js": "^9.39.2",
-        "@sudobility/tapayoka_client": "^0.0.6",
+        "@sudobility/tapayoka_client": "^0.0.7",
         "@sudobility/tapayoka_types": "^0.0.6",
         "@sudobility/types": "^1.9.55",
         "@tanstack/react-query": "^5.90.5",
@@ -21,7 +21,7 @@
         "zustand": "^5.0.0",
       },
       "peerDependencies": {
-        "@sudobility/tapayoka_client": "^0.0.6",
+        "@sudobility/tapayoka_client": "^0.0.7",
         "@sudobility/tapayoka_types": "^0.0.6",
         "@sudobility/types": "^1.9.55",
         "@tanstack/react-query": ">=5.0.0",
@@ -163,7 +163,7 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@sudobility/tapayoka_client": ["@sudobility/tapayoka_client@0.0.6", "", { "peerDependencies": { "@sudobility/tapayoka_types": "^0.0.6", "@sudobility/types": "^1.9.55", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0" } }, "sha512-h9Ddty4Zw0CM0gUIt0rEjciHbMSVPhxclHDgPMjPcyTp402UTS5WH0FpIc6ZePBmnEykbTfh06+hdLc6Efar+A=="],
+    "@sudobility/tapayoka_client": ["@sudobility/tapayoka_client@0.0.7", "", { "peerDependencies": { "@sudobility/tapayoka_types": "^0.0.6", "@sudobility/types": "^1.9.55", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0" } }, "sha512-ihDocyRHDpiaLoz4Efxjjq99n3+wp2AU4Mr0nyhsuhEOf26K+OBIR9LLUunDi4dobmDtxoyXwY3XNudGxOBNMA=="],
 
     "@sudobility/tapayoka_types": ["@sudobility/tapayoka_types@0.0.6", "", { "peerDependencies": { "@sudobility/types": "^1.9.55" } }, "sha512-ouSmJUC8B2S2gjDsk1PEjG4lRBWLUVg23yJqlnglOI1NzARVr7iFga0WWVP4AHrtEGNHxiXfVdfN8dJ+PP+u6A=="],
 
