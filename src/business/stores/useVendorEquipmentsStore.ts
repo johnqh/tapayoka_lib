@@ -5,8 +5,8 @@ interface VendorEquipmentsState {
   equipments: VendorEquipment[];
   isLoaded: boolean;
   entitySlug: string | null;
-  serviceId: string | null;
-  setEquipments: (equipments: VendorEquipment[], serviceId: string, entitySlug?: string) => void;
+  installationId: string | null;
+  setEquipments: (equipments: VendorEquipment[], installationId: string, entitySlug?: string) => void;
   addEquipment: (equipment: VendorEquipment) => void;
   updateEquipment: (walletAddress: string, updates: Partial<VendorEquipment>) => void;
   removeEquipment: (walletAddress: string) => void;
@@ -18,9 +18,9 @@ export const useVendorEquipmentsStore = create<VendorEquipmentsState>(
     equipments: [],
     isLoaded: false,
     entitySlug: null,
-    serviceId: null,
-    setEquipments: (equipments, serviceId, entitySlug) =>
-      set({ equipments, isLoaded: true, serviceId, entitySlug: entitySlug ?? null }),
+    installationId: null,
+    setEquipments: (equipments, installationId, entitySlug) =>
+      set({ equipments, isLoaded: true, installationId, entitySlug: entitySlug ?? null }),
     addEquipment: equipment =>
       set(state => ({ equipments: [...state.equipments, equipment] })),
     updateEquipment: (walletAddress, updates) =>
@@ -35,6 +35,6 @@ export const useVendorEquipmentsStore = create<VendorEquipmentsState>(
           e => e.walletAddress !== walletAddress
         ),
       })),
-    reset: () => set({ equipments: [], isLoaded: false, entitySlug: null, serviceId: null }),
+    reset: () => set({ equipments: [], isLoaded: false, entitySlug: null, installationId: null }),
   })
 );

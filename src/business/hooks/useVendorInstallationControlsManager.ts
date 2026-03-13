@@ -1,28 +1,28 @@
 import { useCallback, useEffect } from 'react';
 import type { NetworkClient } from '@sudobility/types';
 import type {
-  VendorServiceControlCreateRequest,
-  VendorServiceControlUpdateRequest,
+  VendorInstallationControlCreateRequest,
+  VendorInstallationControlUpdateRequest,
 } from '@sudobility/tapayoka_types';
-import { useVendorServiceControls } from '@sudobility/tapayoka_client';
-import { useVendorServiceControlsStore } from '../stores';
+import { useVendorInstallationControls } from '@sudobility/tapayoka_client';
+import { useVendorInstallationControlsStore } from '../stores';
 import type { FirebaseIdToken } from '@sudobility/tapayoka_client';
 
-export const useVendorServiceControlsManager = (
+export const useVendorInstallationControlsManager = (
   networkClient: NetworkClient,
   baseUrl: string,
   entitySlug: string | null,
   token: FirebaseIdToken | null,
-  serviceId: string | null
+  installationId: string | null
 ) => {
-  const store = useVendorServiceControlsStore();
-  const hook = useVendorServiceControls(
+  const store = useVendorInstallationControlsStore();
+  const hook = useVendorInstallationControls(
     networkClient,
     baseUrl,
     entitySlug,
     token,
-    serviceId,
-    { enabled: !!token && !!serviceId }
+    installationId,
+    { enabled: !!token && !!installationId }
   );
 
   useEffect(() => {
@@ -30,13 +30,13 @@ export const useVendorServiceControlsManager = (
   }, [entitySlug]);
 
   useEffect(() => {
-    if (hook.controls.length > 0 && serviceId) {
-      store.setControls(hook.controls, serviceId, entitySlug ?? undefined);
+    if (hook.controls.length > 0 && installationId) {
+      store.setControls(hook.controls, installationId, entitySlug ?? undefined);
     }
-  }, [hook.controls, serviceId, entitySlug]);
+  }, [hook.controls, installationId, entitySlug]);
 
   const addControl = useCallback(
-    async (data: VendorServiceControlCreateRequest) => {
+    async (data: VendorInstallationControlCreateRequest) => {
       const control = await hook.createControl(data);
       if (control) store.addControl(control);
       return control;
@@ -45,7 +45,7 @@ export const useVendorServiceControlsManager = (
   );
 
   const updateControl = useCallback(
-    async (id: string, data: VendorServiceControlUpdateRequest) => {
+    async (id: string, data: VendorInstallationControlUpdateRequest) => {
       const control = await hook.updateControl(id, data);
       if (control) store.updateControl(id, control);
       return control;

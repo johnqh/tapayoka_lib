@@ -1,9 +1,9 @@
 export { useDevicesStore } from './useDevicesStore';
-export { useServicesStore } from './useServicesStore';
+export { useInstallationsStore } from './useInstallationsStore';
 export { useOrdersStore } from './useOrdersStore';
 export { useAnalyticsStore } from './useAnalyticsStore';
 export { useVendorLocationsStore } from './useVendorLocationsStore';
-export { useVendorEquipmentCategoriesStore } from './useVendorEquipmentCategoriesStore';
-export { useVendorServicesStore } from './useVendorServicesStore';
-export { useVendorServiceControlsStore } from './useVendorServiceControlsStore';
+export { useVendorModelsStore } from './useVendorModelsStore';
+export { useVendorInstallationsStore } from './useVendorInstallationsStore';
+export { useVendorInstallationControlsStore } from './useVendorInstallationControlsStore';
 export { useVendorEquipmentsStore } from './useVendorEquipmentsStore';
