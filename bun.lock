@@ -6,8 +6,8 @@
       "name": "@sudobility/tapayoka_lib",
       "devDependencies": {
         "@eslint/js": "^9.39.2",
-        "@sudobility/tapayoka_client": "^0.0.11",
-        "@sudobility/tapayoka_types": "^0.0.9",
+        "@sudobility/tapayoka_client": "^0.0.12",
+        "@sudobility/tapayoka_types": "^0.0.10",
         "@sudobility/types": "^1.9.57",
         "@tanstack/react-query": "^5.90.5",
         "@types/react": "^19.2.2",
@@ -21,8 +21,8 @@
         "zustand": "^5.0.0",
       },
       "peerDependencies": {
-        "@sudobility/tapayoka_client": "^0.0.11",
-        "@sudobility/tapayoka_types": "^0.0.9",
+        "@sudobility/tapayoka_client": "^0.0.12",
+        "@sudobility/tapayoka_types": "^0.0.10",
         "@sudobility/types": "^1.9.57",
         "@tanstack/react-query": ">=5.0.0",
         "react": ">=18.0.0",
@@ -163,9 +163,9 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@sudobility/tapayoka_client": ["@sudobility/tapayoka_client@0.0.11", "", { "peerDependencies": { "@sudobility/tapayoka_types": "^0.0.9", "@sudobility/types": "^1.9.57", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0" } }, "sha512-jyP42u78Lsi7u0+2A1Oj8e7oBLRU5S8USnsq4BzSk6CYDIpQ4ksw10t1qle+g0qeyfMYY4keXc13Tk2y/i3neA=="],
+    "@sudobility/tapayoka_client": ["@sudobility/tapayoka_client@0.0.12", "", { "peerDependencies": { "@sudobility/tapayoka_types": "^0.0.10", "@sudobility/types": "^1.9.57", "@tanstack/react-query": ">=5.0.0", "react": ">=18.0.0" } }, "sha512-EQLp/0e/RpS49vKiB4JFntMFipjzSAgjybIRsYKBvIY97Ril4VScneyYsGXUGWxL75VpfvC/liIFd0tmOAZo0Q=="],
 
-    "@sudobility/tapayoka_types": ["@sudobility/tapayoka_types@0.0.9", "", { "peerDependencies": { "@sudobility/types": "^1.9.57" } }, "sha512-QhTbc+e5LI41RXP1dqFi7kVhrnaVSv1OlASq7jkxJFXFvHyoLqiv7Vawa5osD60fltclK3+erkh4IO1fCECeeA=="],
+    "@sudobility/tapayoka_types": ["@sudobility/tapayoka_types@0.0.10", "", { "peerDependencies": { "@sudobility/types": "^1.9.57" } }, "sha512-lRwaUz/1VxLDA0+Nk0JS3sAeZqHj2KzAUmd8KGmsdbY0hw3EZj9GSBvJcT85ivNtLhHbMD4x4l+Y6bA6bMdt7A=="],
 
     "@sudobility/types": ["@sudobility/types@1.9.57", "", {}, "sha512-POtx/cRagDEdnEwrXfuoyzhNKyGahD7TYJRZT7WYW6+9ID1ZHwWDGkI88KmenKtwsljiJPQZ9+QM7jy13hdv3g=="],
 
