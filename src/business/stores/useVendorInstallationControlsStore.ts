@@ -6,9 +6,16 @@ interface VendorInstallationControlsState {
   isLoaded: boolean;
   entitySlug: string | null;
   installationId: string | null;
-  setControls: (controls: VendorInstallationControl[], installationId: string, entitySlug?: string) => void;
+  setControls: (
+    controls: VendorInstallationControl[],
+    installationId: string,
+    entitySlug?: string
+  ) => void;
   addControl: (control: VendorInstallationControl) => void;
-  updateControl: (id: string, updates: Partial<VendorInstallationControl>) => void;
+  updateControl: (
+    id: string,
+    updates: Partial<VendorInstallationControl>
+  ) => void;
   removeControl: (id: string) => void;
   reset: () => void;
 }
@@ -20,7 +27,12 @@ export const useVendorInstallationControlsStore =
     entitySlug: null,
     installationId: null,
     setControls: (controls, installationId, entitySlug) =>
-      set({ controls, isLoaded: true, installationId, entitySlug: entitySlug ?? null }),
+      set({
+        controls,
+        isLoaded: true,
+        installationId,
+        entitySlug: entitySlug ?? null,
+      }),
     addControl: control =>
       set(state => ({ controls: [...state.controls, control] })),
     updateControl: (id, updates) =>
@@ -33,5 +45,11 @@ export const useVendorInstallationControlsStore =
       set(state => ({
         controls: state.controls.filter(c => c.id !== id),
       })),
-    reset: () => set({ controls: [], isLoaded: false, entitySlug: null, installationId: null }),
+    reset: () =>
+      set({
+        controls: [],
+        isLoaded: false,
+        entitySlug: null,
+        installationId: null,
+      }),
   }));

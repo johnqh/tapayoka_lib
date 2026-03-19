@@ -15,13 +15,9 @@ export const useVendorModelsManager = (
   token: FirebaseIdToken | null
 ) => {
   const store = useVendorModelsStore();
-  const hook = useVendorModels(
-    networkClient,
-    baseUrl,
-    entitySlug,
-    token,
-    { enabled: !!token }
-  );
+  const hook = useVendorModels(networkClient, baseUrl, entitySlug, token, {
+    enabled: !!token,
+  });
 
   useEffect(() => {
     store.reset();

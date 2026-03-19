@@ -22,9 +22,13 @@ export const useInstallationsStore = create<InstallationsState>(set => ({
     set(state => ({ installations: [...state.installations, installation] })),
   updateInstallation: (id, updates) =>
     set(state => ({
-      installations: state.installations.map(s => (s.id === id ? { ...s, ...updates } : s)),
+      installations: state.installations.map(s =>
+        s.id === id ? { ...s, ...updates } : s
+      ),
     })),
   removeInstallation: id =>
-    set(state => ({ installations: state.installations.filter(s => s.id !== id) })),
+    set(state => ({
+      installations: state.installations.filter(s => s.id !== id),
+    })),
   reset: () => set({ installations: [], isLoaded: false, entitySlug: null }),
 }));

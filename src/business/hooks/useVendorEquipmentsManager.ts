@@ -31,7 +31,11 @@ export const useVendorEquipmentsManager = (
 
   useEffect(() => {
     if (hook.equipments.length > 0 && installationId) {
-      store.setEquipments(hook.equipments, installationId, entitySlug ?? undefined);
+      store.setEquipments(
+        hook.equipments,
+        installationId,
+        entitySlug ?? undefined
+      );
     }
   }, [hook.equipments, installationId, entitySlug]);
 

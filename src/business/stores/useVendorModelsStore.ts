@@ -12,24 +12,20 @@ interface VendorModelsState {
   reset: () => void;
 }
 
-export const useVendorModelsStore =
-  create<VendorModelsState>(set => ({
-    models: [],
-    isLoaded: false,
-    entitySlug: null,
-    setModels: (models, entitySlug) =>
-      set({ models, isLoaded: true, entitySlug: entitySlug ?? null }),
-    addModel: model =>
-      set(state => ({ models: [...state.models, model] })),
-    updateModel: (id, updates) =>
-      set(state => ({
-        models: state.models.map(c =>
-          c.id === id ? { ...c, ...updates } : c
-        ),
-      })),
-    removeModel: id =>
-      set(state => ({
-        models: state.models.filter(c => c.id !== id),
-      })),
-    reset: () => set({ models: [], isLoaded: false, entitySlug: null }),
-  }));
+export const useVendorModelsStore = create<VendorModelsState>(set => ({
+  models: [],
+  isLoaded: false,
+  entitySlug: null,
+  setModels: (models, entitySlug) =>
+    set({ models, isLoaded: true, entitySlug: entitySlug ?? null }),
+  addModel: model => set(state => ({ models: [...state.models, model] })),
+  updateModel: (id, updates) =>
+    set(state => ({
+      models: state.models.map(c => (c.id === id ? { ...c, ...updates } : c)),
+    })),
+  removeModel: id =>
+    set(state => ({
+      models: state.models.filter(c => c.id !== id),
+    })),
+  reset: () => set({ models: [], isLoaded: false, entitySlug: null }),
+}));

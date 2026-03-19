@@ -1,6 +1,9 @@
 import { useCallback, useEffect } from 'react';
 import type { NetworkClient } from '@sudobility/types';
-import type { DeviceCreateRequest, DeviceUpdateRequest } from '@sudobility/tapayoka_types';
+import type {
+  DeviceCreateRequest,
+  DeviceUpdateRequest,
+} from '@sudobility/tapayoka_types';
 import { useDevices } from '@sudobility/tapayoka_client';
 import { useDevicesStore } from '../stores';
 import type { FirebaseIdToken } from '@sudobility/tapayoka_client';

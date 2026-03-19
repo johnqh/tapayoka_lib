@@ -33,7 +33,11 @@ export const useVendorInstallationsManager = (
 
   useEffect(() => {
     if (hook.installations.length > 0 && parentId) {
-      store.setInstallations(hook.installations, parentId, entitySlug ?? undefined);
+      store.setInstallations(
+        hook.installations,
+        parentId,
+        entitySlug ?? undefined
+      );
     }
   }, [hook.installations, parentId, entitySlug]);
 

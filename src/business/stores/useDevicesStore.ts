@@ -18,8 +18,7 @@ export const useDevicesStore = create<DevicesState>(set => ({
   entitySlug: null,
   setDevices: (devices, entitySlug) =>
     set({ devices, isLoaded: true, entitySlug }),
-  addDevice: device =>
-    set(state => ({ devices: [...state.devices, device] })),
+  addDevice: device => set(state => ({ devices: [...state.devices, device] })),
   updateDevice: (walletAddress, updates) =>
     set(state => ({
       devices: state.devices.map(d =>

@@ -43,7 +43,9 @@ describe('useDevicesStore', () => {
   });
 
   it('updateDevice updates matching device', () => {
-    useDevicesStore.getState().setDevices([mockDevice('0x01'), mockDevice('0x02')], 'e');
+    useDevicesStore
+      .getState()
+      .setDevices([mockDevice('0x01'), mockDevice('0x02')], 'e');
     useDevicesStore.getState().updateDevice('0x01', { label: 'Updated' });
     const devices = useDevicesStore.getState().devices;
     expect(devices[0].label).toBe('Updated');
@@ -57,7 +59,9 @@ describe('useDevicesStore', () => {
   });
 
   it('removeDevice removes matching device', () => {
-    useDevicesStore.getState().setDevices([mockDevice('0x01'), mockDevice('0x02')], 'e');
+    useDevicesStore
+      .getState()
+      .setDevices([mockDevice('0x01'), mockDevice('0x02')], 'e');
     useDevicesStore.getState().removeDevice('0x01');
     const devices = useDevicesStore.getState().devices;
     expect(devices).toHaveLength(1);
