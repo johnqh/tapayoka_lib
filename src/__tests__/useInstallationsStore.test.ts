@@ -1,14 +1,14 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { useInstallationsStore } from '../business/stores/useInstallationsStore';
-import type { Installation } from '@sudobility/tapayoka_types';
+import { useOfferingsStore } from '../business/stores/useOfferingsStore';
+import type { Offering } from '@sudobility/tapayoka_types';
 
-const mockInstallation = (
+const mockOffering = (
   id: string,
   type: 'TRIGGER' | 'FIXED' | 'VARIABLE' = 'FIXED'
-): Installation => ({
+): Offering => ({
   id,
   entityId: 'entity-1',
-  name: `Installation ${id}`,
+  name: `Offering ${id}`,
   description: null,
   type,
   priceCents: 100,
@@ -19,66 +19,55 @@ const mockInstallation = (
   updatedAt: null,
 });
 
-describe('useInstallationsStore', () => {
+describe('useOfferingsStore', () => {
   beforeEach(() => {
-    useInstallationsStore.getState().reset();
+    useOfferingsStore.getState().reset();
   });
 
   it('starts empty', () => {
-    const state = useInstallationsStore.getState();
-    expect(state.installations).toEqual([]);
+    const state = useOfferingsStore.getState();
+    expect(state.offerings).toEqual([]);
     expect(state.isLoaded).toBe(false);
   });
 
-  it('setInstallations sets data and marks loaded', () => {
-    const installations = [
-      mockInstallation('s1'),
-      mockInstallation('s2', 'VARIABLE'),
-    ];
-    useInstallationsStore
-      .getState()
-      .setInstallations(installations, 'my-entity');
-    const state = useInstallationsStore.getState();
-    expect(state.installations).toHaveLength(2);
+  it('setOfferings sets data and marks loaded', () => {
+    const offerings = [mockOffering('s1'), mockOffering('s2', 'VARIABLE')];
+    useOfferingsStore.getState().setOfferings(offerings, 'my-entity');
+    const state = useOfferingsStore.getState();
+    expect(state.offerings).toHaveLength(2);
     expect(state.isLoaded).toBe(true);
     expect(state.entitySlug).toBe('my-entity');
   });
 
-  it('addInstallation appends', () => {
-    useInstallationsStore
-      .getState()
-      .setInstallations([mockInstallation('s1')], 'e');
-    useInstallationsStore.getState().addInstallation(mockInstallation('s2'));
-    expect(useInstallationsStore.getState().installations).toHaveLength(2);
+  it('addOffering appends', () => {
+    useOfferingsStore.getState().setOfferings([mockOffering('s1')], 'e');
+    useOfferingsStore.getState().addOffering(mockOffering('s2'));
+    expect(useOfferingsStore.getState().offerings).toHaveLength(2);
   });
 
-  it('updateInstallation merges updates', () => {
-    useInstallationsStore
+  it('updateOffering merges updates', () => {
+    useOfferingsStore.getState().setOfferings([mockOffering('s1')], 'e');
+    useOfferingsStore
       .getState()
-      .setInstallations([mockInstallation('s1')], 'e');
-    useInstallationsStore
-      .getState()
-      .updateInstallation('s1', { name: 'Renamed', priceCents: 200 });
-    const inst = useInstallationsStore.getState().installations[0];
+      .updateOffering('s1', { name: 'Renamed', priceCents: 200 });
+    const inst = useOfferingsStore.getState().offerings[0];
     expect(inst.name).toBe('Renamed');
     expect(inst.priceCents).toBe(200);
   });
 
-  it('removeInstallation removes by id', () => {
-    useInstallationsStore
+  it('removeOffering removes by id', () => {
+    useOfferingsStore
       .getState()
-      .setInstallations([mockInstallation('s1'), mockInstallation('s2')], 'e');
-    useInstallationsStore.getState().removeInstallation('s1');
-    expect(useInstallationsStore.getState().installations).toHaveLength(1);
-    expect(useInstallationsStore.getState().installations[0].id).toBe('s2');
+      .setOfferings([mockOffering('s1'), mockOffering('s2')], 'e');
+    useOfferingsStore.getState().removeOffering('s1');
+    expect(useOfferingsStore.getState().offerings).toHaveLength(1);
+    expect(useOfferingsStore.getState().offerings[0].id).toBe('s2');
   });
 
   it('reset clears state', () => {
-    useInstallationsStore
-      .getState()
-      .setInstallations([mockInstallation('s1')], 'e');
-    useInstallationsStore.getState().reset();
-    expect(useInstallationsStore.getState().installations).toEqual([]);
-    expect(useInstallationsStore.getState().isLoaded).toBe(false);
+    useOfferingsStore.getState().setOfferings([mockOffering('s1')], 'e');
+    useOfferingsStore.getState().reset();
+    expect(useOfferingsStore.getState().offerings).toEqual([]);
+    expect(useOfferingsStore.getState().isLoaded).toBe(false);
   });
 });

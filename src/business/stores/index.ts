@@ -1,9 +1,8 @@
 export { useDevicesStore } from './useDevicesStore';
-export { useInstallationsStore } from './useInstallationsStore';
+export { useOfferingsStore } from './useOfferingsStore';
 export { useOrdersStore } from './useOrdersStore';
 export { useAnalyticsStore } from './useAnalyticsStore';
 export { useVendorLocationsStore } from './useVendorLocationsStore';
 export { useVendorModelsStore } from './useVendorModelsStore';
-export { useVendorInstallationsStore } from './useVendorInstallationsStore';
-export { useVendorInstallationControlsStore } from './useVendorInstallationControlsStore';
+export { useVendorOfferingsStore } from './useVendorOfferingsStore';
 export { useVendorEquipmentsStore } from './useVendorEquipmentsStore';

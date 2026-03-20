@@ -5,10 +5,10 @@ interface VendorEquipmentsState {
   equipments: VendorEquipment[];
   isLoaded: boolean;
   entitySlug: string | null;
-  installationId: string | null;
+  offeringId: string | null;
   setEquipments: (
     equipments: VendorEquipment[],
-    installationId: string,
+    offeringId: string,
     entitySlug?: string
   ) => void;
   addEquipment: (equipment: VendorEquipment) => void;
@@ -24,12 +24,12 @@ export const useVendorEquipmentsStore = create<VendorEquipmentsState>(set => ({
   equipments: [],
   isLoaded: false,
   entitySlug: null,
-  installationId: null,
-  setEquipments: (equipments, installationId, entitySlug) =>
+  offeringId: null,
+  setEquipments: (equipments, offeringId, entitySlug) =>
     set({
       equipments,
       isLoaded: true,
-      installationId,
+      offeringId,
       entitySlug: entitySlug ?? null,
     }),
   addEquipment: equipment =>
@@ -51,6 +51,6 @@ export const useVendorEquipmentsStore = create<VendorEquipmentsState>(set => ({
       equipments: [],
       isLoaded: false,
       entitySlug: null,
-      installationId: null,
+      offeringId: null,
     }),
 }));

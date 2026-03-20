@@ -13,7 +13,7 @@ export const useVendorEquipmentsManager = (
   baseUrl: string,
   entitySlug: string | null,
   token: FirebaseIdToken | null,
-  installationId: string | null
+  offeringId: string | null
 ) => {
   const store = useVendorEquipmentsStore();
   const hook = useVendorEquipments(
@@ -21,8 +21,8 @@ export const useVendorEquipmentsManager = (
     baseUrl,
     entitySlug,
     token,
-    installationId,
-    { enabled: !!token && !!installationId }
+    offeringId,
+    { enabled: !!token && !!offeringId }
   );
 
   useEffect(() => {
@@ -30,14 +30,10 @@ export const useVendorEquipmentsManager = (
   }, [entitySlug]);
 
   useEffect(() => {
-    if (hook.equipments.length > 0 && installationId) {
-      store.setEquipments(
-        hook.equipments,
-        installationId,
-        entitySlug ?? undefined
-      );
+    if (hook.equipments.length > 0 && offeringId) {
+      store.setEquipments(hook.equipments, offeringId, entitySlug ?? undefined);
     }
-  }, [hook.equipments, installationId, entitySlug]);
+  }, [hook.equipments, offeringId, entitySlug]);
 
   const addEquipment = useCallback(
     async (data: VendorEquipmentCreateRequest) => {

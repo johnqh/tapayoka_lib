@@ -1,9 +1,8 @@
 export { useDevicesManager } from './useDevicesManager';
-export { useInstallationsManager } from './useInstallationsManager';
+export { useOfferingsManager } from './useOfferingsManager';
 export { useOrdersManager } from './useOrdersManager';
 export { useAnalyticsManager } from './useAnalyticsManager';
 export { useVendorLocationsManager } from './useVendorLocationsManager';
 export { useVendorModelsManager } from './useVendorModelsManager';
-export { useVendorInstallationsManager } from './useVendorInstallationsManager';
-export { useVendorInstallationControlsManager } from './useVendorInstallationControlsManager';
+export { useVendorOfferingsManager } from './useVendorOfferingsManager';
 export { useVendorEquipmentsManager } from './useVendorEquipmentsManager';
