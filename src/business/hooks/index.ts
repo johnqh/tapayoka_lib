@@ -6,3 +6,4 @@ export { useVendorLocationsManager } from './useVendorLocationsManager';
 export { useVendorModelsManager } from './useVendorModelsManager';
 export { useVendorOfferingsManager } from './useVendorOfferingsManager';
 export { useVendorInstallationsManager } from './useVendorInstallationsManager';
+export { useVendorInstallationSlotsManager } from './useVendorInstallationSlotsManager';
