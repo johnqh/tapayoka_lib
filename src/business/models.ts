@@ -127,6 +127,20 @@ export interface VendorModelConfig {
   payment?: VendorModelPayment;
 }
 
+/** Whether slot pricing applies (only multi-slot models have per-slot pricing). */
+export function slotSupportsSlotPricing(
+  slot: VendorModelSlot | null | undefined
+): boolean {
+  return !!slot && slot !== 'single';
+}
+
+/** Whether an interruption policy applies (only timed actions can be interrupted). */
+export function actionSupportsInterruption(
+  action: VendorModelAction | null | undefined
+): boolean {
+  return action === 'timed';
+}
+
 /**
  * Normalize raw model config field values into a request payload, applying the
  * domain gating rules: slot pricing only applies to multi-slot models, and
@@ -138,13 +152,13 @@ export function buildVendorModelConfig(
   return {
     pricing: input.pricing || undefined,
     slot: input.slot || undefined,
-    slotPricing:
-      input.slot && input.slot !== 'single'
-        ? input.slotPricing || undefined
-        : undefined,
+    slotPricing: slotSupportsSlotPricing(input.slot)
+      ? input.slotPricing || undefined
+      : undefined,
     action: input.action || undefined,
-    interruption:
-      input.action === 'timed' ? input.interruption || undefined : undefined,
+    interruption: actionSupportsInterruption(input.action)
+      ? input.interruption || undefined
+      : undefined,
     payment: input.payment || undefined,
   };
 }

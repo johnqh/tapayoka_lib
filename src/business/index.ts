@@ -6,6 +6,8 @@ export * from './wallet';
 export * from './models';
 export * from './schedule';
 export * from './offerings';
+export * from './orders';
+export * from './cards';
 export * from './installations';
 export * from './deeplink';
 export * from './locations';
