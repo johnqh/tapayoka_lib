@@ -20,3 +20,8 @@ export function formatTierSummary(tier: PricingTier): string {
   }
   return `${tier.price} ${tier.currencyCode}`;
 }
+
+/** A tier line prefixed with its name, e.g. `"Standard: 2.50 USD / 30min"`. */
+export function formatTierDetailLine(tier: PricingTier): string {
+  return `${tier.name}: ${formatTierSummary(tier)}`;
+}
