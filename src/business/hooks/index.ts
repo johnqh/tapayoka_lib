@@ -5,3 +5,5 @@ export { useVendorModelsManager } from './useVendorModelsManager';
 export { useVendorOfferingsManager } from './useVendorOfferingsManager';
 export { useVendorInstallationsManager } from './useVendorInstallationsManager';
 export { useVendorInstallationSlotsManager } from './useVendorInstallationSlotsManager';
+export { useOfferingPricingTiersManager } from './useOfferingPricingTiersManager';
+export { useOfferingScheduleManager } from './useOfferingScheduleManager';
